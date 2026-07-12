@@ -11,18 +11,23 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <style>
     .pantalla--login {
-      justify-content: center;
       align-items: center;
-      gap: 18px;
+      gap: 24px;
       text-align: center;
     }
     .logo-readbok {
-      font-size: 3.4rem;
+      margin-top: auto;
+      font-size: 3.2rem;
       font-weight: 800;
       color: var(--enfasis);
-      margin-bottom: 30px;
     }
-    .pantalla--login .btn { width: 200px; }
+    .libro-marca { margin: -6px 0 10px; }
+    .pantalla--login .btn {
+      width: 240px;
+      white-space: nowrap;
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
     .enlace-salir {
       margin-top: auto;
       color: var(--texto);
@@ -46,6 +51,10 @@
 
     <main class="pantalla pantalla--login">
       <h1 class="logo-readbok">ReadBok</h1>
+      <svg class="libro-marca" width="120" height="90" viewBox="0 0 150 112" fill="none">
+        <path d="M75 22 C58 8 30 8 14 16 V88 C30 80 58 80 75 94 C92 80 120 80 136 88 V16 C120 8 92 8 75 22 Z" stroke="#9e2a2b" stroke-width="14" stroke-linejoin="round"/>
+        <line x1="75" y1="22" x2="75" y2="94" stroke="#9e2a2b" stroke-width="14"/>
+      </svg>
       <a class="btn btn--primario" id="btnIniciar" href="cargando.html?siguiente=inicio.html">Iniciar sesión</a>
       <a class="btn btn--primario" id="btnCrear" href="cargando.html?siguiente=meta.html">Crear cuenta</a>
       <a class="enlace-salir" href="#">Salir</a>
