@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadBok — Tus insignias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+  <div class="telefono">
+
+    <header class="barra-estado">
+      <span>02:47 PM</span>
+      <span class="iconos-estado">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 12 5.5 9.2a3.6 3.6 0 0 1 5 0Zm4.2-4.7a6.6 6.6 0 0 0-8.4 0L2.1 5.4a9.2 9.2 0 0 1 11.8 0ZM16 3.5a11.8 11.8 0 0 0-16 0l1.7 1.9a9.3 9.3 0 0 1 12.6 0Z"/></svg>
+      </span>
+    </header>
+
+    <main class="pantalla">
+
+      <h1 class="titulo-pantalla">Tus insignias</h1>
+
+      <h2 class="subtitulo">Tus insignias</h2>
+      <div class="cuadricula-iconos" id="insignias">
+        <button class="icono-cuadro activo" type="button" aria-label="Insignia estrella">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Insignia espada">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 2h2v9h4v2h-4v3.5l2.5 2.5-1.5 1.5L12 18.5 10 20.5 8.5 19l2.5-2.5V13H7v-2h4Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Insignia bota">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 3h6v10l5 4v4H9l-5-3v-2h5Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Insignia pluma">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4c-6 0-12 4-14 10l-2 6 6-2C16 16 20 10 20 4Zm-9 9 5-5"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Insignia montaña">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4 3 20h18Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Insignia aspa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3 12 9l7-6 2 2-6 7 6 7-2 2-7-6-7 6-2-2 6-7-6-7Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Insignia hoja">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 4C10 4 4 10 4 20c10 0 16-6 17-16ZM6 18C8 12 12 8 18 6"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Insignia llave">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a4 4 0 0 0-1 7.87V19l1 3 1-3v-2l-1-1 1-1v-1l-1-1 1-1v-2.13A4 4 0 0 0 12 2Zm0 2.5A1.5 1.5 0 1 1 10.5 6 1.5 1.5 0 0 1 12 4.5Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Insignia ojo">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 5C6 5 2 12 2 12s4 7 10 7 10-7 10-7-4-7-10-7Zm0 10.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5Z"/></svg>
+        </button>
+      </div>
+
+      <h2 class="subtitulo">Insignias bloqueadas</h2>
+      <div class="cuadricula-iconos">
+        <button class="icono-cuadro" type="button" disabled aria-label="Insignia bloqueada">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Insignia bloqueada">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Insignia bloqueada">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Insignia bloqueada">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Insignia bloqueada">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Insignia bloqueada">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+      </div>
+
+    </main>
+
+    <nav class="nav-inferior">
+      <a href="inicio.html" aria-label="Inicio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5.5 9.5V21h13V9.5"/></svg>
+      </a>
+      <a href="sesion.html" aria-label="Temporizador">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M4.5 4 2.5 6M19.5 4l2 2"/></svg>
+      </a>
+      <a href="historial.html" aria-label="Historial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+      </a>
+      <a href="logros.html" class="activo" aria-label="Logros">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 3h10v6a5 5 0 0 1-10 0Z"/><path d="M7 5H3.5v1.5A3.5 3.5 0 0 0 7 10M17 5h3.5v1.5A3.5 3.5 0 0 1 17 10"/><path d="M12 14v4M8 21h8M10 18h4v3h-4z"/></svg>
+      </a>
+    </nav>
+
+    <div class="indicador-inicio"></div>
+  </div>
+
+  <script>
+    // Selección de la insignia activa
+    document.querySelectorAll('#insignias .icono-cuadro').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('#insignias .icono-cuadro.activo')?.classList.remove('activo');
+        btn.classList.add('activo');
+      });
+    });
+  </script>
+
+</body>
+</html>

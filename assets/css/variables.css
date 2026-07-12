@@ -1,0 +1,32 @@
+/* ============================================
+   ReadBok — Tokens de la guía de estilo (Entrega 1)
+   ============================================ */
+:root {
+  /* Paleta de colores web */
+  --texto: #2c3e50;        /* Texto / botones primarios */
+  --enfasis: #9e2a2b;      /* Énfasis / activo / destructivo */
+  --corporativo: #df9f3e;  /* Color corporativo (naranja) */
+  --fondo: #ffffff;        /* Fondo */
+
+  /* Estados de botones (según lámina: hover gris azulado, pressed más claro) */
+  --texto-hover: #8494a5;
+  --texto-pressed: #aab6c2;
+  --corporativo-hover: #ecc891;
+  --corporativo-pressed: #f3ddb9;
+  --deshabilitado: #2c3e50;
+
+  /* Tipografía — Montserrat */
+  --fuente: 'Montserrat', sans-serif;
+  --h1: 2rem;      /* 20pt → escala pantalla */
+  --h2: 1.7rem;    /* 17pt */
+  --h3: 1.6rem;    /* 16pt */
+  --h4: 1.3rem;    /* 13pt */
+  --h5: 1rem;      /* 10pt */
+  --h6: 0.9rem;    /* 9pt  */
+
+  /* Marco del teléfono */
+  --ancho-telefono: 390px;
+  --radio-telefono: 52px;
+  --radio-boton: 999px;
+  --radio-tarjeta: 20px;
+}

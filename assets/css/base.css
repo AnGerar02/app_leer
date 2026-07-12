@@ -1,0 +1,259 @@
+/* ============================================
+   ReadBok — Estilos base: marco de teléfono,
+   barra de estado, navegación y botones
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* escala móvil: 1rem = 16px (los tokens h1-h6 mantienen la jerarquía de la guía) */
+}
+
+body {
+  font-family: var(--fuente);
+  color: var(--texto);
+  background: #e9e9e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px 0;
+}
+
+/* ---------- Marco del teléfono ---------- */
+.telefono {
+  width: var(--ancho-telefono);
+  height: 790px;
+  max-height: calc(100vh - 48px);
+  background: var(--fondo);
+  border: 14px solid #0d0d0d;
+  border-radius: var(--radio-telefono);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Muesca (notch) superior: semicírculo que cuelga del bisel */
+.telefono::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62px;
+  height: 34px;
+  background: #0d0d0d;
+  border-radius: 0 0 999px 999px;
+  z-index: 5;
+}
+
+/* En modo dispositivo (F12) el marco desaparece y la app llena la pantalla */
+@media (max-width: 480px) {
+  body { padding: 0; background: var(--fondo); }
+  .telefono {
+    width: 100%;
+    height: 100dvh;
+    max-height: none;
+    border: none;
+    border-radius: 0;
+  }
+  .telefono::before { display: none; }
+}
+
+/* ---------- Barra de estado ---------- */
+.barra-estado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px 6px;
+  font-size: var(--h5);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.barra-estado .iconos-estado {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* ---------- Contenido de la pantalla ---------- */
+.pantalla {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 28px 24px;
+}
+
+/* ---------- Navegación inferior ---------- */
+.nav-inferior {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 18px 4px;
+}
+
+.nav-inferior a {
+  color: var(--texto);
+  display: flex;
+  padding: 6px 10px;
+}
+
+.nav-inferior a.activo {
+  color: var(--enfasis);
+}
+
+.nav-inferior svg {
+  width: 38px;
+  height: 38px;
+  stroke-width: 2.5;
+}
+
+/* Barrita de inicio (home indicator) */
+.indicador-inicio {
+  width: 130px;
+  height: 4px;
+  border-radius: 999px;
+  background: #0d0d0d;
+  margin: 4px auto 8px;
+  flex-shrink: 0;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  font-family: var(--fuente);
+  font-weight: 700;
+  font-size: var(--h4);
+  border: none;
+  border-radius: var(--radio-boton);
+  padding: 12px 34px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition: background 0.15s ease;
+}
+
+/* Primario (azul) */
+.btn--primario { background: var(--texto); color: var(--fondo); }
+.btn--primario:hover { background: var(--texto-hover); }
+.btn--primario:active { background: var(--texto-pressed); }
+
+/* Acento (naranja) */
+.btn--acento { background: var(--corporativo); color: var(--fondo); }
+.btn--acento:hover { background: var(--corporativo-hover); }
+.btn--acento:active { background: var(--corporativo-pressed); }
+
+/* Secundario (contorno rojo, tipo chip) */
+.btn--secundario {
+  background: transparent;
+  color: var(--enfasis);
+  border: 1.5px solid var(--enfasis);
+  font-size: var(--h5);
+  padding: 6px 16px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn--secundario:hover {
+  background: rgba(158, 42, 43, 0.08);
+}
+
+.btn--secundario:active {
+  background: var(--enfasis);
+  color: var(--fondo);
+}
+
+/* Destructivo */
+.btn--destructivo { background: var(--enfasis); color: var(--fondo); }
+
+.btn:disabled,
+.btn.deshabilitado {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ---------- Encabezados de pantalla ---------- */
+.titulo-pantalla {
+  font-size: var(--h2);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.subtitulo {
+  color: var(--enfasis);
+  font-size: var(--h4);
+  font-weight: 700;
+  margin: 14px 0 10px;
+}
+
+.etiqueta {
+  font-size: var(--h6);
+  font-weight: 600;
+  color: var(--texto);
+  opacity: 0.8;
+}
+
+/* ---------- Cuadrículas de iconos (insignias / tonos) ---------- */
+.cuadricula-iconos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 26px;
+  justify-items: center;
+  margin-bottom: 8px;
+}
+
+.icono-cuadro {
+  width: 58px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: var(--texto);
+  color: var(--fondo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.icono-cuadro:hover { background: var(--texto-hover); }
+.icono-cuadro.activo { background: var(--enfasis); }
+.icono-cuadro svg { width: 22px; height: 22px; }
+
+/* ---------- Utilidades ---------- */
+.chip-titulo {
+  background: var(--enfasis);
+  color: var(--fondo);
+  font-weight: 800;
+  font-size: var(--h2);
+  padding: 8px 26px;
+  border-radius: 12px;
+  align-self: center;
+}
+
+.tarjeta-dato {
+  background: var(--corporativo);
+  color: var(--texto);
+  border-radius: var(--radio-tarjeta);
+  padding: 16px 10px 12px;
+  text-align: center;
+  flex: 1;
+}
+
+.tarjeta-dato strong {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.tarjeta-dato span {
+  font-size: var(--h6);
+  font-weight: 600;
+}

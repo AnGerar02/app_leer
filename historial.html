@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadBok — Historial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <style>
+    .fila-dato {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .chip-minutos {
+      background: var(--corporativo);
+      color: var(--fondo);
+      font-weight: 800;
+      font-size: var(--h3);
+      padding: 10px 20px;
+      border-radius: 12px;
+    }
+    .libros-leidos {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+    .libro-chip {
+      flex-shrink: 0;
+      background: var(--texto);
+      color: var(--fondo);
+      font-size: var(--h6);
+      font-weight: 600;
+      padding: 16px 14px;
+      border-radius: 12px;
+      min-width: 84px;
+      text-align: center;
+    }
+    .grafica { margin-top: auto; }
+    .grafica text {
+      font-family: var(--fuente);
+      font-size: 10px;
+      font-weight: 600;
+      fill: var(--texto);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="telefono">
+
+    <header class="barra-estado">
+      <span>02:47 PM</span>
+      <span class="iconos-estado">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 12 5.5 9.2a3.6 3.6 0 0 1 5 0Zm4.2-4.7a6.6 6.6 0 0 0-8.4 0L2.1 5.4a9.2 9.2 0 0 1 11.8 0ZM16 3.5a11.8 11.8 0 0 0-16 0l1.7 1.9a9.3 9.3 0 0 1 12.6 0Z"/></svg>
+      </span>
+    </header>
+
+    <main class="pantalla">
+
+      <h1 class="titulo-pantalla">Historial</h1>
+
+      <div class="fila-dato">
+        <h2 class="subtitulo">Minutos<br>acumulados</h2>
+        <span class="chip-minutos">130 min</span>
+      </div>
+
+      <h2 class="subtitulo">Libros<br>leídos</h2>
+      <div class="libros-leidos">
+        <div class="libro-chip">El Zorro</div>
+        <div class="libro-chip">Blancanieves</div>
+        <div class="libro-chip">Caperucita<br>lobo feroz</div>
+      </div>
+
+      <!-- Constancia semanal: barras vs. meta diaria (línea punteada) -->
+      <svg class="grafica" viewBox="0 0 300 170">
+        <text x="12" y="95" transform="rotate(-90 12 95)" text-anchor="middle">15 min</text>
+        <line x1="30" y1="60" x2="290" y2="60" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.6"/>
+        <g>
+          <rect x="45"  y="75" width="38" height="65" rx="6" fill="#df9f3e"/>
+          <rect x="110" y="40" width="38" height="100" rx="6" fill="#df9f3e"/>
+          <rect x="175" y="95" width="38" height="45" rx="6" fill="#9e2a2b"/>
+          <rect x="240" y="70" width="38" height="70" rx="6" fill="#df9f3e"/>
+        </g>
+        <line x1="30" y1="141" x2="290" y2="141" stroke="#2c3e50" stroke-width="2"/>
+        <text x="64"  y="158" text-anchor="middle">sem 1</text>
+        <text x="129" y="158" text-anchor="middle">sem 2</text>
+        <text x="194" y="158" text-anchor="middle">sem 3</text>
+        <text x="259" y="158" text-anchor="middle">sem 4</text>
+      </svg>
+
+    </main>
+
+    <nav class="nav-inferior">
+      <a href="inicio.html" aria-label="Inicio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5.5 9.5V21h13V9.5"/></svg>
+      </a>
+      <a href="sesion.html" aria-label="Temporizador">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M4.5 4 2.5 6M19.5 4l2 2"/></svg>
+      </a>
+      <a href="historial.html" class="activo" aria-label="Historial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+      </a>
+      <a href="logros.html" aria-label="Logros">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 3h10v6a5 5 0 0 1-10 0Z"/><path d="M7 5H3.5v1.5A3.5 3.5 0 0 0 7 10M17 5h3.5v1.5A3.5 3.5 0 0 1 17 10"/><path d="M12 14v4M8 21h8M10 18h4v3h-4z"/></svg>
+      </a>
+    </nav>
+
+    <div class="indicador-inicio"></div>
+  </div>
+
+</body>
+</html>

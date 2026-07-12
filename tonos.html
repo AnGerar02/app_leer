@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadBok — Tus tonos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+  <div class="telefono">
+
+    <header class="barra-estado">
+      <span>02:47 PM</span>
+      <span class="iconos-estado">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 12 5.5 9.2a3.6 3.6 0 0 1 5 0Zm4.2-4.7a6.6 6.6 0 0 0-8.4 0L2.1 5.4a9.2 9.2 0 0 1 11.8 0ZM16 3.5a11.8 11.8 0 0 0-16 0l1.7 1.9a9.3 9.3 0 0 1 12.6 0Z"/></svg>
+      </span>
+    </header>
+
+    <main class="pantalla">
+
+      <h1 class="titulo-pantalla">Tus tonos</h1>
+
+      <h2 class="subtitulo">Tus tonos</h2>
+      <div class="cuadricula-iconos" id="tonos">
+        <button class="icono-cuadro activo" type="button" aria-label="Tono 1">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Tono 2">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Tono 3">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Tono 4">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Tono 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Tono 6">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Tono 7">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Tono 8">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" aria-label="Tono 9">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </button>
+      </div>
+
+      <h2 class="subtitulo">Tonos bloqueados</h2>
+      <div class="cuadricula-iconos">
+        <button class="icono-cuadro" type="button" disabled aria-label="Tono bloqueado">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Tono bloqueado">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Tono bloqueado">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Tono bloqueado">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Tono bloqueado">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+        <button class="icono-cuadro" type="button" disabled aria-label="Tono bloqueado">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V7a5 5 0 0 0-10 0v3H5v11h14V10Zm-8-3a3 3 0 0 1 6 0v3H9Zm4 8.7V18h-2v-2.3a1.8 1.8 0 1 1 2 0Z"/></svg>
+        </button>
+      </div>
+
+    </main>
+
+    <nav class="nav-inferior">
+      <a href="inicio.html" aria-label="Inicio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5.5 9.5V21h13V9.5"/></svg>
+      </a>
+      <a href="sesion.html" aria-label="Temporizador">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M4.5 4 2.5 6M19.5 4l2 2"/></svg>
+      </a>
+      <a href="historial.html" aria-label="Historial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+      </a>
+      <a href="logros.html" class="activo" aria-label="Logros">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 3h10v6a5 5 0 0 1-10 0Z"/><path d="M7 5H3.5v1.5A3.5 3.5 0 0 0 7 10M17 5h3.5v1.5A3.5 3.5 0 0 1 17 10"/><path d="M12 14v4M8 21h8M10 18h4v3h-4z"/></svg>
+      </a>
+    </nav>
+
+    <div class="indicador-inicio"></div>
+  </div>
+
+  <script>
+    // Selección del tono activo
+    document.querySelectorAll('#tonos .icono-cuadro').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('#tonos .icono-cuadro.activo')?.classList.remove('activo');
+        btn.classList.add('activo');
+      });
+    });
+  </script>
+
+</body>
+</html>

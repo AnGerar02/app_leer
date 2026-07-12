@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadBok — Logros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <style>
+    .fila-vermas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+    .insignia-estrella {
+      width: 58px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--corporativo);
+      color: var(--fondo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .insignia-estrella svg, .tono-nota svg { width: 24px; height: 24px; }
+    .tono-nota {
+      width: 50px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--texto);
+      color: var(--fondo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn--vermas {
+      font-size: var(--h6);
+      padding: 6px 18px;
+    }
+    .metas {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .meta-chip {
+      flex-shrink: 0;
+      width: 74px;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .meta-chip .meta-texto {
+      display: block;
+      padding: 8px 6px;
+      color: var(--fondo);
+      background: var(--texto);
+      min-height: 40px;
+    }
+    .meta-chip.cumplida .meta-texto { background: var(--corporativo); }
+    .meta-chip .meta-estado {
+      display: block;
+      background: #e6e8ea;
+      color: var(--texto);
+      padding: 3px 0;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="telefono">
+
+    <header class="barra-estado">
+      <span>02:47 PM</span>
+      <span class="iconos-estado">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 12 5.5 9.2a3.6 3.6 0 0 1 5 0Zm4.2-4.7a6.6 6.6 0 0 0-8.4 0L2.1 5.4a9.2 9.2 0 0 1 11.8 0ZM16 3.5a11.8 11.8 0 0 0-16 0l1.7 1.9a9.3 9.3 0 0 1 12.6 0Z"/></svg>
+      </span>
+    </header>
+
+    <main class="pantalla">
+
+      <h1 class="titulo-pantalla">Logros</h1>
+
+      <h2 class="subtitulo">Tus insignias</h2>
+      <div class="fila-vermas">
+        <span class="insignia-estrella">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8Z"/></svg>
+        </span>
+        <a class="btn btn--primario btn--vermas" href="insignias.html">Ver más</a>
+      </div>
+
+      <h2 class="subtitulo">Metas cumplidas</h2>
+      <div class="metas">
+        <div class="meta-chip cumplida">
+          <span class="meta-texto">leer 10 libros</span>
+          <span class="meta-estado">Completado</span>
+        </div>
+        <div class="meta-chip">
+          <span class="meta-texto">leer 150 min</span>
+          <span class="meta-estado">&nbsp;</span>
+        </div>
+        <div class="meta-chip cumplida">
+          <span class="meta-texto">leer 15 min en un día</span>
+          <span class="meta-estado">Completado</span>
+        </div>
+        <div class="meta-chip">
+          <span class="meta-texto">leer 200 min</span>
+          <span class="meta-estado">&nbsp;</span>
+        </div>
+      </div>
+
+      <h2 class="subtitulo">Tus tonos</h2>
+      <span class="etiqueta">Tono de notificaciones</span>
+      <div class="fila-vermas">
+        <span class="tono-nota">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </span>
+        <a class="btn btn--primario btn--vermas" href="tonos.html">Ver más</a>
+      </div>
+      <span class="etiqueta">Tono de sesión</span>
+      <div class="fila-vermas">
+        <span class="tono-nota">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18.5a3 3 0 1 1-2-2.83V5l11-2v12.5a3 3 0 1 1-2-2.83V6.4L9 8Z"/></svg>
+        </span>
+        <a class="btn btn--primario btn--vermas" href="tonos.html">Ver más</a>
+      </div>
+
+    </main>
+
+    <nav class="nav-inferior">
+      <a href="inicio.html" aria-label="Inicio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5.5 9.5V21h13V9.5"/></svg>
+      </a>
+      <a href="sesion.html" aria-label="Temporizador">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M4.5 4 2.5 6M19.5 4l2 2"/></svg>
+      </a>
+      <a href="historial.html" aria-label="Historial">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+      </a>
+      <a href="logros.html" class="activo" aria-label="Logros">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 3h10v6a5 5 0 0 1-10 0Z"/><path d="M7 5H3.5v1.5A3.5 3.5 0 0 0 7 10M17 5h3.5v1.5A3.5 3.5 0 0 1 17 10"/><path d="M12 14v4M8 21h8M10 18h4v3h-4z"/></svg>
+      </a>
+    </nav>
+
+    <div class="indicador-inicio"></div>
+  </div>
+
+</body>
+</html>

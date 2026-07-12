@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadBok</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <style>
+    .pantalla--login {
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      text-align: center;
+    }
+    .logo-readbok {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--enfasis);
+      margin-bottom: 30px;
+    }
+    .pantalla--login .btn { width: 200px; }
+    .enlace-salir {
+      margin-top: auto;
+      color: var(--texto);
+      font-size: var(--h5);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="telefono">
+
+    <header class="barra-estado">
+      <span>02:47 PM</span>
+      <span class="iconos-estado">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 12 5.5 9.2a3.6 3.6 0 0 1 5 0Zm4.2-4.7a6.6 6.6 0 0 0-8.4 0L2.1 5.4a9.2 9.2 0 0 1 11.8 0ZM16 3.5a11.8 11.8 0 0 0-16 0l1.7 1.9a9.3 9.3 0 0 1 12.6 0Z"/></svg>
+      </span>
+    </header>
+
+    <main class="pantalla pantalla--login">
+      <h1 class="logo-readbok">ReadBok</h1>
+      <a class="btn btn--primario" href="inicio.html">Iniciar sesión</a>
+      <a class="btn btn--primario" href="inicio.html">Crear cuenta</a>
+      <a class="enlace-salir" href="#">Salir</a>
+    </main>
+
+    <div class="indicador-inicio"></div>
+  </div>
+
+</body>
+</html>
