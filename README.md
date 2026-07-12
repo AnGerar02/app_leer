@@ -175,5 +175,3 @@ A continuación se documenta cada iteración con su **prompt técnica** (redacci
 | `logros.html`    | Metas con progreso, carrusel arrastrable                              |
 | `insignias.html` | Selección de insignia activa, flecha de retorno                       |
 | `tonos.html`     | 9 tonos audibles (Web Audio API), selección, flecha de retorno        |
-
-**Pendientes:** conexión del repositorio local con GitHub (remoto) y commit del prototipo.
