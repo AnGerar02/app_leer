@@ -1,74 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ReadBok</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/variables.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <style>
-    .pantalla--login {
-      align-items: center;
-      gap: 24px;
-      text-align: center;
-    }
-    .logo-readbok {
-      margin-top: auto;
-      font-size: 3.2rem;
-      font-weight: 800;
-      color: var(--enfasis);
-    }
-    .libro-marca { margin: -6px 0 10px; }
-    .pantalla--login .btn {
-      width: 240px;
-      white-space: nowrap;
-      padding-top: 14px;
-      padding-bottom: 14px;
-    }
-    .enlace-salir {
-      margin-top: auto;
-      color: var(--texto);
-      font-size: var(--h5);
-      font-weight: 600;
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReadBok</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <style>
+      .pantalla--login {
+        align-items: center;
+        gap: 24px;
+        text-align: center;
+      }
+      .logo-readbok {
+        margin-top: auto;
+        font-size: 3.2rem;
+        font-weight: 800;
+        color: var(--enfasis);
+      }
+      .libro-marca {
+        margin: -6px 0 10px;
+      }
+      .pantalla--login .btn {
+        width: 240px;
+        white-space: nowrap;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+      .enlace-salir {
+        margin-top: auto;
+        color: var(--texto);
+        font-size: var(--h5);
+        font-weight: 600;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="telefono">
+      <header class="barra-estado">
+        <span>02:47 PM</span>
+        <span class="iconos-estado">
+          <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor">
+            <rect x="0" y="8" width="3" height="4" rx="1" />
+            <rect x="4.5" y="5" width="3" height="7" rx="1" />
+            <rect x="9" y="2" width="3" height="10" rx="1" />
+            <rect x="13.5" y="0" width="3" height="12" rx="1" />
+          </svg>
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor">
+            <path
+              d="M8 12 5.5 9.2a3.6 3.6 0 0 1 5 0Zm4.2-4.7a6.6 6.6 0 0 0-8.4 0L2.1 5.4a9.2 9.2 0 0 1 11.8 0ZM16 3.5a11.8 11.8 0 0 0-16 0l1.7 1.9a9.3 9.3 0 0 1 12.6 0Z"
+            />
+          </svg>
+        </span>
+      </header>
 
-  <div class="telefono">
+      <main class="pantalla pantalla--login">
+        <h1 class="logo-readbok">ReadBok</h1>
+        <svg
+          class="libro-marca"
+          width="120"
+          height="90"
+          viewBox="0 0 150 112"
+          fill="none"
+        >
+          <path
+            d="M75 22 C58 8 30 8 14 16 V88 C30 80 58 80 75 94 C92 80 120 80 136 88 V16 C120 8 92 8 75 22 Z"
+            stroke="#9e2a2b"
+            stroke-width="14"
+            stroke-linejoin="round"
+          />
+          <line
+            x1="75"
+            y1="22"
+            x2="75"
+            y2="94"
+            stroke="#9e2a2b"
+            stroke-width="14"
+          />
+        </svg>
+        <a
+          class="btn btn--primario"
+          id="btnIniciar"
+          href="cargando.html?siguiente=inicio.html"
+          >Iniciar sesión</a
+        >
+        <a
+          class="btn btn--primario"
+          id="btnCrear"
+          href="cargando.html?siguiente=meta.html"
+          >Crear cuenta</a
+        >
+        <a class="enlace-salir" href="#">Salir</a>
+      </main>
 
-    <header class="barra-estado">
-      <span>02:47 PM</span>
-      <span class="iconos-estado">
-        <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="7" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
-        <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 12 5.5 9.2a3.6 3.6 0 0 1 5 0Zm4.2-4.7a6.6 6.6 0 0 0-8.4 0L2.1 5.4a9.2 9.2 0 0 1 11.8 0ZM16 3.5a11.8 11.8 0 0 0-16 0l1.7 1.9a9.3 9.3 0 0 1 12.6 0Z"/></svg>
-      </span>
-    </header>
+      <div class="indicador-inicio"></div>
+    </div>
 
-    <main class="pantalla pantalla--login">
-      <h1 class="logo-readbok">ReadBok</h1>
-      <svg class="libro-marca" width="120" height="90" viewBox="0 0 150 112" fill="none">
-        <path d="M75 22 C58 8 30 8 14 16 V88 C30 80 58 80 75 94 C92 80 120 80 136 88 V16 C120 8 92 8 75 22 Z" stroke="#9e2a2b" stroke-width="14" stroke-linejoin="round"/>
-        <line x1="75" y1="22" x2="75" y2="94" stroke="#9e2a2b" stroke-width="14"/>
-      </svg>
-      <a class="btn btn--primario" id="btnIniciar" href="cargando.html?siguiente=inicio.html">Iniciar sesión</a>
-      <a class="btn btn--primario" id="btnCrear" href="cargando.html?siguiente=meta.html">Crear cuenta</a>
-      <a class="enlace-salir" href="#">Salir</a>
-    </main>
-
-    <div class="indicador-inicio"></div>
-  </div>
-
-  <script>
-    // Perfil de la demo: "Iniciar sesión" entra como Omar (datos llenos),
-    // "Crear cuenta" entra como usuario nuevo (todo en 0)
-    document.getElementById('btnIniciar').addEventListener('click', () => sessionStorage.setItem('perfil', 'omar'));
-    document.getElementById('btnCrear').addEventListener('click', () => sessionStorage.setItem('perfil', 'nuevo'));
-  </script>
-
-</body>
+    <script>
+      // Perfil de la demo: "Iniciar sesión" entra como Omar (datos llenos),
+      // "Crear cuenta" entra como usuario nuevo (todo en 0)
+      document
+        .getElementById("btnIniciar")
+        .addEventListener("click", () =>
+          sessionStorage.setItem("perfil", "omar"),
+        );
+      document
+        .getElementById("btnCrear")
+        .addEventListener("click", () =>
+          sessionStorage.setItem("perfil", "nuevo"),
+        );
+    </script>
+  </body>
 </html>
