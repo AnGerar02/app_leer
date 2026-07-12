@@ -41,35 +41,55 @@
       font-size: var(--h6);
       padding: 6px 18px;
     }
+    /* Carrusel de metas: se arrastra, sin barra visible */
     .metas {
       display: flex;
-      gap: 8px;
+      gap: 12px;
       overflow-x: auto;
-      padding-bottom: 4px;
+      margin: 0 -28px;
+      padding: 0 28px 4px;
+      cursor: grab;
+      scrollbar-width: none;      /* Firefox */
+      user-select: none;
     }
+    .metas::-webkit-scrollbar { display: none; }  /* Chrome/Edge */
+    .metas.arrastrando { cursor: grabbing; }
     .meta-chip {
       flex-shrink: 0;
-      width: 74px;
-      border-radius: 10px;
+      width: 96px;
+      border-radius: 12px;
       overflow: hidden;
       text-align: center;
       font-size: 0.8rem;
       font-weight: 600;
     }
+    /* Todos los cuadritos con la misma altura, pase lo que pase con el texto */
     .meta-chip .meta-texto {
-      display: block;
-      padding: 8px 6px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
       color: var(--fondo);
       background: var(--texto);
-      min-height: 40px;
     }
     .meta-chip.cumplida .meta-texto { background: var(--corporativo); }
     .meta-chip .meta-estado {
+      position: relative;
       display: block;
       background: #e6e8ea;
       color: var(--texto);
-      padding: 3px 0;
-      font-size: 0.75rem;
+      height: 18px;
+      line-height: 18px;
+      font-size: 0.7rem;
+      overflow: hidden;
+    }
+    /* Barra de progreso de las metas pendientes */
+    .meta-progreso {
+      position: absolute;
+      inset: 0 auto 0 0;
+      background: var(--corporativo);
+      border-radius: 0 999px 999px 0;
     }
   </style>
 </head>
@@ -105,7 +125,7 @@
         </div>
         <div class="meta-chip">
           <span class="meta-texto">leer 150 min</span>
-          <span class="meta-estado">&nbsp;</span>
+          <span class="meta-estado"><span class="meta-progreso" style="width: 65%"></span></span>
         </div>
         <div class="meta-chip cumplida">
           <span class="meta-texto">leer 15 min en un día</span>
@@ -113,7 +133,7 @@
         </div>
         <div class="meta-chip">
           <span class="meta-texto">leer 200 min</span>
-          <span class="meta-estado">&nbsp;</span>
+          <span class="meta-estado"><span class="meta-progreso" style="width: 40%"></span></span>
         </div>
       </div>
 
@@ -152,6 +172,32 @@
 
     <div class="indicador-inicio"></div>
   </div>
+
+  <script>
+    // Arrastrar el carrusel de metas con mouse o dedo (sin barra de scroll)
+    const carrusel = document.querySelector('.metas');
+    let arrastrando = false, inicioX = 0, scrollInicial = 0;
+
+    carrusel.addEventListener('pointerdown', e => {
+      arrastrando = true;
+      inicioX = e.clientX;
+      scrollInicial = carrusel.scrollLeft;
+      carrusel.classList.add('arrastrando');
+      carrusel.setPointerCapture(e.pointerId);
+    });
+
+    carrusel.addEventListener('pointermove', e => {
+      if (!arrastrando) return;
+      carrusel.scrollLeft = scrollInicial - (e.clientX - inicioX);
+    });
+
+    ['pointerup', 'pointercancel'].forEach(ev =>
+      carrusel.addEventListener(ev, () => {
+        arrastrando = false;
+        carrusel.classList.remove('arrastrando');
+      })
+    );
+  </script>
 
 </body>
 </html>

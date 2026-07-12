@@ -46,13 +46,20 @@
 
     <main class="pantalla pantalla--login">
       <h1 class="logo-readbok">ReadBok</h1>
-      <a class="btn btn--primario" href="inicio.html">Iniciar sesión</a>
-      <a class="btn btn--primario" href="inicio.html">Crear cuenta</a>
+      <a class="btn btn--primario" id="btnIniciar" href="cargando.html?siguiente=inicio.html">Iniciar sesión</a>
+      <a class="btn btn--primario" id="btnCrear" href="cargando.html?siguiente=meta.html">Crear cuenta</a>
       <a class="enlace-salir" href="#">Salir</a>
     </main>
 
     <div class="indicador-inicio"></div>
   </div>
+
+  <script>
+    // Perfil de la demo: "Iniciar sesión" entra como Omar (datos llenos),
+    // "Crear cuenta" entra como usuario nuevo (todo en 0)
+    document.getElementById('btnIniciar').addEventListener('click', () => sessionStorage.setItem('perfil', 'omar'));
+    document.getElementById('btnCrear').addEventListener('click', () => sessionStorage.setItem('perfil', 'nuevo'));
+  </script>
 
 </body>
 </html>

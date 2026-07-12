@@ -186,6 +186,25 @@ body {
   margin-bottom: 14px;
 }
 
+/* Encabezado con flecha de regreso (subpantallas) */
+.encabezado-volver {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.encabezado-volver .titulo-pantalla { margin-bottom: 0; }
+
+.btn-volver {
+  display: flex;
+  color: var(--texto);
+}
+
+.btn-volver svg { width: 28px; height: 28px; }
+.btn-volver:hover { color: var(--texto-hover); }
+.btn-volver:active { color: var(--enfasis); }
+
 .subtitulo {
   color: var(--enfasis);
   font-size: var(--h4);
@@ -226,6 +245,13 @@ body {
 .icono-cuadro:hover { background: var(--texto-hover); }
 .icono-cuadro.activo { background: var(--enfasis); }
 .icono-cuadro svg { width: 22px; height: 22px; }
+
+/* Bloqueados: atenuados y sin reacción al mouse */
+.icono-cuadro:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.icono-cuadro:disabled:hover { background: var(--texto); }
 
 /* ---------- Utilidades ---------- */
 .chip-titulo {

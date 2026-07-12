@@ -43,10 +43,61 @@
       color: var(--texto);
       font-size: var(--h5);
       font-weight: 600;
-      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: var(--fuente);
+      cursor: pointer;
       margin: 4px 0;
     }
-    .enlace-recordatorio svg { color: var(--enfasis); }
+    .enlace-recordatorio svg {
+      color: var(--enfasis);
+      transition: transform 0.25s ease;
+    }
+    .enlace-recordatorio.abierto svg { transform: rotate(45deg); }
+
+    /* Panel desplegable del recordatorio */
+    .panel-recordatorio {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 6px 0 4px;
+    }
+    .agregar-recordatorio {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .agregar-recordatorio input[type="time"] {
+      font-family: var(--fuente);
+      font-weight: 700;
+      font-size: var(--h5);
+      color: var(--texto);
+      border: 1.5px solid var(--texto);
+      border-radius: 10px;
+      padding: 7px 10px;
+      background: var(--fondo);
+    }
+    .btn--agregar { font-size: var(--h6); padding: 9px 20px; }
+    .lista-recordatorios {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .recordatorio {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--h5);
+      font-weight: 700;
+    }
+    .recordatorio svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .btn--eliminar {
+      margin-left: auto;
+      font-size: 0.75rem;
+      padding: 5px 14px;
+    }
     .pantalla--meta .btn--primario { margin-top: auto; align-self: center; }
   </style>
 </head>
@@ -75,10 +126,18 @@
       </div>
 
       <h2 class="subtitulo">Horario de lectura</h2>
-      <a class="enlace-recordatorio" href="#">
+      <button class="enlace-recordatorio" id="btnRecordatorio" type="button">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
         Configurar recordatorio
-      </a>
+      </button>
+
+      <div class="panel-recordatorio" id="panelRecordatorio" hidden>
+        <div class="agregar-recordatorio">
+          <input type="time" id="horaRecordatorio" value="20:00" aria-label="Hora del recordatorio">
+          <button class="btn btn--acento btn--agregar" id="btnAgregar" type="button">Agregar</button>
+        </div>
+        <ul class="lista-recordatorios" id="listaRecordatorios"></ul>
+      </div>
 
       <a class="btn btn--primario" href="inicio.html">Guardar configuración</a>
 
@@ -110,6 +169,42 @@
         btn.classList.add('seleccionada');
       });
     });
+
+    // Recordatorios: desplegar panel, agregar y eliminar horarios
+    const btnRecordatorio = document.getElementById('btnRecordatorio');
+    const panel = document.getElementById('panelRecordatorio');
+    const lista = document.getElementById('listaRecordatorios');
+    const hora = document.getElementById('horaRecordatorio');
+
+    btnRecordatorio.addEventListener('click', () => {
+      panel.hidden = !panel.hidden;
+      btnRecordatorio.classList.toggle('abierto', !panel.hidden);
+    });
+
+    function formato12h(valor) {
+      let [h, m] = valor.split(':').map(Number);
+      const sufijo = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')} ${sufijo}`;
+    }
+
+    function agregarRecordatorio(valor) {
+      const fila = document.createElement('li');
+      fila.className = 'recordatorio';
+      fila.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M4.5 4 2.5 6M19.5 4l2 2"/></svg>
+        <span>${formato12h(valor)}</span>
+        <button class="btn btn--destructivo btn--eliminar" type="button">Eliminar</button>`;
+      fila.querySelector('.btn--eliminar').addEventListener('click', () => fila.remove());
+      lista.appendChild(fila);
+    }
+
+    document.getElementById('btnAgregar').addEventListener('click', () => {
+      if (hora.value) agregarRecordatorio(hora.value);
+    });
+
+    // Recordatorio de ejemplo para que la lista no arranque vacía
+    agregarRecordatorio('20:00');
   </script>
 
 </body>

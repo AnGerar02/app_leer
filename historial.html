@@ -24,30 +24,53 @@
       padding: 10px 20px;
       border-radius: 12px;
     }
+    /* Carrusel de libros: se arrastra con el dedo o el mouse, sin barra visible */
     .libros-leidos {
       display: flex;
-      gap: 10px;
+      gap: 14px;
       overflow-x: auto;
-      padding-bottom: 6px;
-      margin-bottom: 10px;
+      margin: 4px -28px 8px;
+      padding: 0 28px 4px;
+      cursor: grab;
+      scrollbar-width: none;      /* Firefox */
+      user-select: none;
     }
+    .libros-leidos::-webkit-scrollbar { display: none; }  /* Chrome/Edge */
+    .libros-leidos.arrastrando { cursor: grabbing; }
     .libro-chip {
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: var(--texto);
       color: var(--fondo);
-      font-size: var(--h6);
+      font-size: var(--h5);
       font-weight: 600;
-      padding: 16px 14px;
-      border-radius: 12px;
-      min-width: 84px;
+      padding: 10px 18px;
+      border-radius: 18px;
+      min-width: 118px;
+      min-height: 88px;
       text-align: center;
     }
-    .grafica { margin-top: auto; }
+    .grafica { margin-top: 18px; }
     .grafica text {
       font-family: var(--fuente);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       fill: var(--texto);
+    }
+    /* Las barras crecen desde la base al entrar */
+    .grafica .barra {
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      animation: crecerBarra 0.9s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+    }
+    .grafica .barra:nth-child(2) { animation-delay: 0.15s; }
+    .grafica .barra:nth-child(3) { animation-delay: 0.3s; }
+    .grafica .barra:nth-child(4) { animation-delay: 0.45s; }
+    @keyframes crecerBarra {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
     }
   </style>
 </head>
@@ -69,7 +92,7 @@
 
       <div class="fila-dato">
         <h2 class="subtitulo">Minutos<br>acumulados</h2>
-        <span class="chip-minutos">130 min</span>
+        <span class="chip-minutos" id="minutosValor">130 min</span>
       </div>
 
       <h2 class="subtitulo">Libros<br>leídos</h2>
@@ -80,20 +103,25 @@
       </div>
 
       <!-- Constancia semanal: barras vs. meta diaria (línea punteada) -->
-      <svg class="grafica" viewBox="0 0 300 170">
-        <text x="12" y="95" transform="rotate(-90 12 95)" text-anchor="middle">15 min</text>
-        <line x1="30" y1="60" x2="290" y2="60" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.6"/>
+      <svg class="grafica" viewBox="0 0 320 190">
+        <text x="16" y="100" transform="rotate(-90 16 100)" text-anchor="middle">15 min</text>
         <g>
-          <rect x="45"  y="75" width="38" height="65" rx="6" fill="#df9f3e"/>
-          <rect x="110" y="40" width="38" height="100" rx="6" fill="#df9f3e"/>
-          <rect x="175" y="95" width="38" height="45" rx="6" fill="#9e2a2b"/>
-          <rect x="240" y="70" width="38" height="70" rx="6" fill="#df9f3e"/>
+          <rect class="barra" x="50"  y="85"  width="44" height="65"  rx="9" fill="#df9f3e"/>
+          <rect class="barra" x="117" y="45"  width="44" height="105" rx="9" fill="#df9f3e"/>
+          <rect class="barra" x="184" y="105" width="44" height="45"  rx="9" fill="#9e2a2b"/>
+          <rect class="barra" x="251" y="75"  width="44" height="75"  rx="9" fill="#df9f3e"/>
         </g>
-        <line x1="30" y1="141" x2="290" y2="141" stroke="#2c3e50" stroke-width="2"/>
-        <text x="64"  y="158" text-anchor="middle">sem 1</text>
-        <text x="129" y="158" text-anchor="middle">sem 2</text>
-        <text x="194" y="158" text-anchor="middle">sem 3</text>
-        <text x="259" y="158" text-anchor="middle">sem 4</text>
+        <line x1="38" y1="78" x2="310" y2="78" stroke="#2c3e50" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.65"/>
+        <line x1="38" y1="12" x2="38" y2="150" stroke="#2c3e50" stroke-width="2"/>
+        <line x1="30" y1="150" x2="312" y2="150" stroke="#2c3e50" stroke-width="2"/>
+        <line x1="105" y1="150" x2="105" y2="158" stroke="#2c3e50" stroke-width="2"/>
+        <line x1="172" y1="150" x2="172" y2="158" stroke="#2c3e50" stroke-width="2"/>
+        <line x1="239" y1="150" x2="239" y2="158" stroke="#2c3e50" stroke-width="2"/>
+        <line x1="306" y1="150" x2="306" y2="158" stroke="#2c3e50" stroke-width="2"/>
+        <text x="72"  y="172" text-anchor="middle">sem 1</text>
+        <text x="139" y="172" text-anchor="middle">sem 2</text>
+        <text x="206" y="172" text-anchor="middle">sem 3</text>
+        <text x="273" y="172" text-anchor="middle">sem 4</text>
       </svg>
 
     </main>
@@ -115,6 +143,39 @@
 
     <div class="indicador-inicio"></div>
   </div>
+
+  <script>
+    // Arrastrar el carrusel de libros con mouse o dedo (sin barra de scroll)
+    const carrusel = document.querySelector('.libros-leidos');
+    let arrastrando = false, inicioX = 0, scrollInicial = 0;
+
+    carrusel.addEventListener('pointerdown', e => {
+      arrastrando = true;
+      inicioX = e.clientX;
+      scrollInicial = carrusel.scrollLeft;
+      carrusel.classList.add('arrastrando');
+      carrusel.setPointerCapture(e.pointerId);
+    });
+
+    carrusel.addEventListener('pointermove', e => {
+      if (!arrastrando) return;
+      carrusel.scrollLeft = scrollInicial - (e.clientX - inicioX);
+    });
+
+    ['pointerup', 'pointercancel'].forEach(ev =>
+      carrusel.addEventListener(ev, () => {
+        arrastrando = false;
+        carrusel.classList.remove('arrastrando');
+      })
+    );
+
+    // Usuario nuevo (Crear cuenta): historial en cero
+    if (sessionStorage.getItem('perfil') === 'nuevo') {
+      document.getElementById('minutosValor').textContent = '0 min';
+      carrusel.innerHTML = '<p class="etiqueta">Aún no has terminado tu primer libro</p>';
+      document.querySelectorAll('.grafica .barra').forEach(b => b.style.display = 'none');
+    }
+  </script>
 
 </body>
 </html>

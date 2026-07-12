@@ -48,29 +48,29 @@
 
     <main class="pantalla pantalla--inicio">
 
-      <h1 class="chip-titulo">Hola Omar</h1>
+      <h1 class="chip-titulo" id="saludo">Hola Omar</h1>
 
       <div class="libro-progreso">
         <svg width="300" height="224" viewBox="0 0 150 112" fill="none">
           <!-- Libro abierto: página izquierda naranja, derecha blanca con media luna -->
-          <path d="M75 22 C58 8 30 8 14 16 V88 C30 80 58 80 75 94 Z" fill="#df9f3e"/>
+          <path class="relleno-lectura" d="M75 22 C58 8 30 8 14 16 V88 C30 80 58 80 75 94 Z" fill="#df9f3e"/>
           <path d="M75 22 C92 8 120 8 136 16 V88 C120 80 92 80 75 94 Z" fill="#ffffff"/>
           <!-- Avance de lectura sobre la página derecha: borde cóncavo -->
-          <path d="M75 22 C84 14 93 12 101 12 C84 40 84 64 100 84 C91 82 83 86 75 94 Z" fill="#df9f3e"/>
+          <path class="relleno-lectura" d="M75 22 C84 14 93 12 101 12 C84 40 84 64 100 84 C91 82 83 86 75 94 Z" fill="#df9f3e"/>
           <path d="M75 22 C58 8 30 8 14 16 V88 C30 80 58 80 75 94 C92 80 120 80 136 88 V16 C120 8 92 8 75 22 Z" stroke="#2c3e50" stroke-width="14" stroke-linejoin="round"/>
           <line x1="75" y1="22" x2="75" y2="94" stroke="#2c3e50" stroke-width="14"/>
         </svg>
-        <span class="porcentaje">65%</span>
+        <span class="porcentaje" id="porcentaje">65%</span>
       </div>
 
       <div class="tarjetas-inicio">
         <div class="tarjeta-dato">
-          <strong>5 días</strong>
+          <strong id="rachaValor">5 días</strong>
           <span>Racha</span>
         </div>
         <div class="tarjeta-dato">
           <strong>Libro</strong>
-          <span>Patrón Bitcoin</span>
+          <span id="libroValor">Patrón Bitcoin</span>
         </div>
       </div>
 
@@ -95,6 +95,17 @@
 
     <div class="indicador-inicio"></div>
   </div>
+
+  <script>
+    // Usuario nuevo (Crear cuenta): dashboard en cero
+    if (sessionStorage.getItem('perfil') === 'nuevo') {
+      document.getElementById('saludo').textContent = 'Hola lector';
+      document.getElementById('porcentaje').textContent = '0%';
+      document.getElementById('rachaValor').textContent = '0 días';
+      document.getElementById('libroValor').textContent = 'Ninguno aún';
+      document.querySelectorAll('.relleno-lectura').forEach(p => p.style.display = 'none');
+    }
+  </script>
 
 </body>
 </html>

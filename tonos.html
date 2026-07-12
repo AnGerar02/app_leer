@@ -24,7 +24,12 @@
 
     <main class="pantalla">
 
-      <h1 class="titulo-pantalla">Tus tonos</h1>
+      <div class="encabezado-volver">
+        <a class="btn-volver" href="logros.html" aria-label="Volver a Logros">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+        </a>
+        <h1 class="titulo-pantalla">Tus tonos</h1>
+      </div>
 
       <h2 class="subtitulo">Tus tonos</h2>
       <div class="cuadricula-iconos" id="tonos">
@@ -100,11 +105,44 @@
   </div>
 
   <script>
-    // Selección del tono activo
-    document.querySelectorAll('#tonos .icono-cuadro').forEach(btn => {
+    // Melodías de cada tono: [frecuencia Hz, duración s, pausa opcional s]
+    const melodias = [
+      [[784, 0.14], [659, 0.14], [523, 0.28]],                                  // campanita descendente
+      [[523, 0.11], [659, 0.11], [784, 0.11], [1047, 0.22]],                    // ascendente alegre
+      [[880, 0.09, 0.06], [880, 0.09, 0.22], [880, 0.09, 0.06], [880, 0.09]],   // doble bip clásico
+      [[659, 0.12], [587, 0.12], [659, 0.12], [587, 0.12], [659, 0.24]],        // trino
+      [[523, 0.16], [784, 0.16], [523, 0.16], [784, 0.16]],                     // alterno
+      [[1047, 0.08], [988, 0.08], [880, 0.08], [784, 0.08], [698, 0.16]],       // cascada
+      [[440, 0.22], [554, 0.22], [659, 0.34]],                                  // arpegio suave
+      [[784, 0.1, 0.05], [784, 0.1], [988, 0.2]],                               // timbre
+      [[659, 0.12], [659, 0.12, 0.1], [523, 0.12], [659, 0.24]]                 // juguetón
+    ];
+
+    let audio;
+    function reproducir(melodia) {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      let t = audio.currentTime + 0.02;
+      for (const [frec, dur, pausa = 0.02] of melodia) {
+        const osc = audio.createOscillator();
+        const vol = audio.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = frec;
+        vol.gain.setValueAtTime(0.001, t);
+        vol.gain.exponentialRampToValueAtTime(0.3, t + 0.02);
+        vol.gain.exponentialRampToValueAtTime(0.001, t + dur);
+        osc.connect(vol).connect(audio.destination);
+        osc.start(t);
+        osc.stop(t + dur + 0.03);
+        t += dur + pausa;
+      }
+    }
+
+    // Selección del tono activo + reproducción de su melodía
+    document.querySelectorAll('#tonos .icono-cuadro').forEach((btn, i) => {
       btn.addEventListener('click', () => {
         document.querySelector('#tonos .icono-cuadro.activo')?.classList.remove('activo');
         btn.classList.add('activo');
+        reproducir(melodias[i]);
       });
     });
   </script>

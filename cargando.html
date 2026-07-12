@@ -54,8 +54,9 @@
   </div>
 
   <script>
-    // Simula la carga y pasa a la sesión de lectura
-    setTimeout(() => { window.location.href = 'sesion.html'; }, 2200);
+    // Simula la carga y pasa a la pantalla indicada en ?siguiente= (por defecto, la sesión)
+    const destino = new URLSearchParams(location.search).get('siguiente') || 'sesion.html';
+    setTimeout(() => { window.location.href = destino; }, 2200);
   </script>
 
 </body>
